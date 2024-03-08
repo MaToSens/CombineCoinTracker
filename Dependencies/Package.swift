@@ -13,11 +13,18 @@ let package = Package(
             targets: ["Dependencies"]
         ),
     ],
-    dependencies: [],
+    dependencies: [
+        .package(path: "Coin"),
+        .package(path: "Components")
+    ],
     targets: [
         .target(
             name: "Dependencies",
-            dependencies: []
+            dependencies: [
+                .product(name: "Coin", package: "Coin"),
+                .product(name: "CoinMocks", package: "Coin"),
+                .product(name: "Components", package: "Components")
+            ]
         )
     ]
 )
