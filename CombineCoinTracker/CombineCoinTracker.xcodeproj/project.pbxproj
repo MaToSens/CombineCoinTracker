@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,7 @@
 		BD5C04312B9BC51300890099 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD5C04302B9BC51300890099 /* ContentView.swift */; };
 		BD5C04332B9BC51500890099 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD5C04322B9BC51500890099 /* Assets.xcassets */; };
 		BD5C04362B9BC51500890099 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BD5C04352B9BC51500890099 /* Preview Assets.xcassets */; };
+		BD5C043E2B9BC5A200890099 /* Dependencies in Frameworks */ = {isa = PBXBuildFile; productRef = BD5C043D2B9BC5A200890099 /* Dependencies */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BD5C043E2B9BC5A200890099 /* Dependencies in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +85,9 @@
 			dependencies = (
 			);
 			name = CombineCoinTracker;
+			packageProductDependencies = (
+				BD5C043D2B9BC5A200890099 /* Dependencies */,
+			);
 			productName = CombineCoinTracker;
 			productReference = BD5C042B2B9BC51300890099 /* CombineCoinTracker.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +116,9 @@
 				Base,
 			);
 			mainGroup = BD5C04222B9BC51300890099;
+			packageReferences = (
+				BD5C043C2B9BC5A200890099 /* XCLocalSwiftPackageReference "../Dependencies" */,
+			);
 			productRefGroup = BD5C042C2B9BC51300890099 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -344,6 +352,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		BD5C043C2B9BC5A200890099 /* XCLocalSwiftPackageReference "../Dependencies" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = ../Dependencies;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BD5C043D2B9BC5A200890099 /* Dependencies */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Dependencies;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BD5C04232B9BC51300890099 /* Project object */;
 }
