@@ -5,9 +5,12 @@
 //  Created by MaTooSens on 08/03/2024.
 //
 
+import Combine
 import Foundation
 
-public protocol BackendManagerInterface { }
+public protocol BackendManagerInterface { 
+    func fetchObjects<Endpoint: EndpointInterface,Response: Decodable>(endpoint: Endpoint) -> AnyPublisher<[Response], HTTPError>
+}
 
 public protocol EndpointInterface {
     var components: [String] { get }
