@@ -13,8 +13,7 @@ import Foundation
 public struct Dependencies {
     public static func inject() {
         Assemblies.inject(type: CoinsDataProviderInterface.self, object: CoinsDataProvider())
-        
-//        Coin.Dependencies.injectShared()
-        Coin.Dependencies.inject()
+
+        Coin.Dependencies.injectShared()
     }
 }

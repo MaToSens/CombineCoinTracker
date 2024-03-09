@@ -22,7 +22,7 @@ struct HomeView: View {
         }
     }
     
-    private func buildHomeView(_ coins: [Coin]) -> some View {
+    private func buildHomeView(_ coins: [CoinModel]) -> some View {
         ScrollView {
             VStack {
                 ForEach(coins) { coin in

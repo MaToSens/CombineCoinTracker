@@ -13,7 +13,7 @@ import Foundation
 final class HomeViewModel: ObservableObject {
     enum State {
         case loading
-        case loaded([Coin])
+        case loaded([CoinModel])
         case error(Error)
     }
     

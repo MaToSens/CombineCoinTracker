@@ -23,6 +23,8 @@
 		BDA487212B9BCE7800FE2798 /* AssemblyMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA4871E2B9BCE5500FE2798 /* AssemblyMocks.swift */; };
 		BDA487242B9BDF0A00FE2798 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA487232B9BDF0A00FE2798 /* HomeViewModel.swift */; };
 		BDA487272B9BDF2000FE2798 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA487262B9BDF2000FE2798 /* HomeView.swift */; };
+		BDA487282B9C72E500FE2798 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA487262B9BDF2000FE2798 /* HomeView.swift */; };
+		BDA487292B9C72E700FE2798 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA487232B9BDF0A00FE2798 /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -244,8 +246,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				BDA487202B9BCE7500FE2798 /* AssemblyShared.swift in Sources */,
+				BDA487292B9C72E700FE2798 /* HomeViewModel.swift in Sources */,
 				BDA487102B9BCE1C00FE2798 /* ContentView.swift in Sources */,
 				BDA487122B9BCE1C00FE2798 /* CombineCoinTrackerApp.swift in Sources */,
+				BDA487282B9C72E500FE2798 /* HomeView.swift in Sources */,
 				BDA487212B9BCE7800FE2798 /* AssemblyMocks.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
