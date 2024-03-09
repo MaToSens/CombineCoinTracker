@@ -19,6 +19,7 @@ let package = Package(
     ],
     dependencies: [
         .package(path: "../DependencyInjection"),
+        .package(path: "../Utilities")
     ],
     targets: [
         .target(
@@ -27,7 +28,10 @@ let package = Package(
         ),
         .target(
             name: "Backend",
-            dependencies: ["BackendInterface"]
+            dependencies: [
+                "BackendInterface",
+                .product(name: "Utilities", package: "Utilities")
+            ]
         ),
         .testTarget(
             name: "BackendTests",

@@ -8,6 +8,7 @@
 import BackendInterface
 import Combine
 import Foundation
+import Utilities
 
 final class BackendManager: BackendManagerInterface {
     func fetchObjects<
