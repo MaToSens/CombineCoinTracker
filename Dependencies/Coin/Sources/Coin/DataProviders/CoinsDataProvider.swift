@@ -39,7 +39,7 @@ fileprivate struct Endpoint: EndpointInterface {
 final class CoinsDataProvider: CoinsDataProviderInterface {
     @Inject private var backendManager: BackendManagerInterface
     
-    func fetchCoins(perPage: Int, page: Int) -> AnyPublisher<[Coin], CoinError> {
+    func fetchCoins(perPage: Int, page: Int) -> AnyPublisher<[CoinModel], CoinError> {
         let endpoint: Endpoint = Endpoint(perPage: perPage, page: page)
         
         return backendManager

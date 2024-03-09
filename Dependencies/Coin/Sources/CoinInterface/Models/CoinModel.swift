@@ -1,13 +1,13 @@
 //
-//  File.swift
-//  
+//  CoinModel.swift
+//
 //
 //  Created by MaTooSens on 09/03/2024.
 //
 
 import Foundation
 
-public struct Coin: Identifiable, Codable, Equatable {
+public struct CoinModel: Identifiable, Codable, Equatable {
     public let id, symbol, name: String
     public let image: String
     public let currentPrice: Double
@@ -35,7 +35,7 @@ public struct SparklineIn7D: Codable, Equatable {
     }
 }
 
-public extension Coin {
+public extension CoinModel {
     static let mock = Self(
         id: "bitcoin",
         symbol: "btc",

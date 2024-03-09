@@ -13,7 +13,7 @@ import Foundation
 final class CoinManager: CoinManagerInterface {
     @Inject private var coinsDataProvider: CoinsDataProviderInterface
     
-    func fetchCoins(perPage: Int, page: Int) -> AnyPublisher<[Coin], CoinError> {
+    func fetchCoins(perPage: Int, page: Int) -> AnyPublisher<[CoinModel], CoinError> {
         coinsDataProvider
             .fetchCoins(perPage: perPage, page: page)
     }

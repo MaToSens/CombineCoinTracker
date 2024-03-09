@@ -9,11 +9,11 @@ import Combine
 import Foundation
 
 public protocol CoinManagerInterface {
-    func fetchCoins(perPage: Int, page: Int) -> AnyPublisher<[Coin], CoinError>
+    func fetchCoins(perPage: Int, page: Int) -> AnyPublisher<[CoinModel], CoinError>
 }
 
 public protocol CoinsDataProviderInterface {
-    func fetchCoins(perPage: Int, page: Int) -> AnyPublisher<[Coin], CoinError>
+    func fetchCoins(perPage: Int, page: Int) -> AnyPublisher<[CoinModel], CoinError>
 }
 
 public enum CoinError: LocalizedError {

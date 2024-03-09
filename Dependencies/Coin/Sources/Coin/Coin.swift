@@ -12,7 +12,6 @@ import Foundation
 
 public struct Dependencies {
     public static func inject() {
-//        Assemblies.inject(type: CoinManagerInterface.self, object: CoinManager())
         Assemblies.inject(type: CoinsDataProviderInterface.self, object: CoinsDataProvider())
         
         injectShared()
