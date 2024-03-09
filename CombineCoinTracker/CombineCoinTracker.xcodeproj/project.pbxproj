@@ -21,6 +21,8 @@
 		BDA4871D2B9BCE3D00FE2798 /* AssemblyShared.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA4871C2B9BCE3D00FE2798 /* AssemblyShared.swift */; };
 		BDA487202B9BCE7500FE2798 /* AssemblyShared.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA4871C2B9BCE3D00FE2798 /* AssemblyShared.swift */; };
 		BDA487212B9BCE7800FE2798 /* AssemblyMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA4871E2B9BCE5500FE2798 /* AssemblyMocks.swift */; };
+		BDA487242B9BDF0A00FE2798 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA487232B9BDF0A00FE2798 /* HomeViewModel.swift */; };
+		BDA487272B9BDF2000FE2798 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA487262B9BDF2000FE2798 /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 		BDA4871B2B9BCE1C00FE2798 /* CombineCoinTrackerMocks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CombineCoinTrackerMocks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDA4871C2B9BCE3D00FE2798 /* AssemblyShared.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyShared.swift; sourceTree = "<group>"; };
 		BDA4871E2B9BCE5500FE2798 /* AssemblyMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssemblyMocks.swift; sourceTree = "<group>"; };
+		BDA487232B9BDF0A00FE2798 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		BDA487262B9BDF2000FE2798 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +82,7 @@
 				BD5C042E2B9BC51300890099 /* CombineCoinTrackerApp.swift */,
 				BD5C04302B9BC51300890099 /* ContentView.swift */,
 				BDA4870A2B9BCDEF00FE2798 /* Assemblies */,
+				BDA487222B9BDEDF00FE2798 /* Views */,
 				BD5C04322B9BC51500890099 /* Assets.xcassets */,
 				BD5C04342B9BC51500890099 /* Preview Content */,
 			);
@@ -100,6 +105,23 @@
 				BDA4871E2B9BCE5500FE2798 /* AssemblyMocks.swift */,
 			);
 			path = Assemblies;
+			sourceTree = "<group>";
+		};
+		BDA487222B9BDEDF00FE2798 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BDA487252B9BDF1300FE2798 /* Home */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BDA487252B9BDF1300FE2798 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				BDA487262B9BDF2000FE2798 /* HomeView.swift */,
+				BDA487232B9BDF0A00FE2798 /* HomeViewModel.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,6 +233,8 @@
 				BD5C04312B9BC51300890099 /* ContentView.swift in Sources */,
 				BDA4870C2B9BCE0700FE2798 /* Assembly.swift in Sources */,
 				BDA4871D2B9BCE3D00FE2798 /* AssemblyShared.swift in Sources */,
+				BDA487272B9BDF2000FE2798 /* HomeView.swift in Sources */,
+				BDA487242B9BDF0A00FE2798 /* HomeViewModel.swift in Sources */,
 				BD5C042F2B9BC51300890099 /* CombineCoinTrackerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

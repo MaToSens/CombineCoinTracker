@@ -11,7 +11,7 @@ import SwiftUI
 struct CombineCoinTrackerApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeView()
         }
     }
 }

@@ -8,7 +8,10 @@
 import Foundation
 
 extension URL {
-    init?(string: String, with parameters: [String: Any]) {
+    init?(
+        string: String,
+        with parameters: [String: Any]
+    ) {
         guard var urlComponents = URLComponents(string: string) else {
             return nil
         }
