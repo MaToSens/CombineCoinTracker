@@ -5,7 +5,8 @@
 //  Created by MaTooSens on 09/03/2024.
 //
 
-import Foundation
+import Utilities
+import SwiftUI
 
 public struct CoinModel: Identifiable, Codable, Equatable {
     public let id, symbol, name: String
@@ -14,7 +15,7 @@ public struct CoinModel: Identifiable, Codable, Equatable {
     public let marketCap, marketCapRank: Int
     public let fullyDilutedValuation: Double?
     public let totalVolume, high24H, low24H: Double?
-    public let priceChange24H, priceChangePercentage24H: Double?
+    public let priceChange24H, priceChangePercentage24H: Double
     public let marketCapChange24H: Double?
     public let marketCapChangePercentage24H: Double?
     public let circulatingSupply, totalSupply, maxSupply, ath: Double?
@@ -25,6 +26,8 @@ public struct CoinModel: Identifiable, Codable, Equatable {
     public let lastUpdated: String?
     public let sparklineIn7D: SparklineIn7D?
     public let priceChangePercentage24HInCurrency: Double?
+    
+    public var currentPriceString: String { currentPrice.asCurrencyWithDecimals() }
 }
 
 public struct SparklineIn7D: Codable, Equatable {
@@ -34,6 +37,7 @@ public struct SparklineIn7D: Codable, Equatable {
         self.price = price
     }
 }
+
 
 public extension CoinModel {
     static let mock = Self(
