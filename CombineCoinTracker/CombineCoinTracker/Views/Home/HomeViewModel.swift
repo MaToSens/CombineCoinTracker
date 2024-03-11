@@ -24,7 +24,7 @@ final class HomeViewModel: ObservableObject {
     
     func fetchCoins() {
         coinManager
-            .fetchCoins(perPage: 10, page: 1)
+            .fetchCoins(perPage: 3, page: 1)
             .receive(on: RunLoop.main)
             .map { State.loaded($0) }
             .catch { Just(.error($0)) }
