@@ -38,7 +38,6 @@ public struct SparklineIn7D: Codable, Equatable {
     }
 }
 
-
 public extension CoinModel {
     static let mock = Self(
         id: "bitcoin",
