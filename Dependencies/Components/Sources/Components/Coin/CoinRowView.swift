@@ -10,9 +10,11 @@ import SwiftUI
 
 public struct CoinRowView: View {
     private let coin: CoinModel
+    private let marketCapRank: String
     
     public init(_ coin: CoinModel) {
         self.coin = coin
+        self.marketCapRank = String(coin.marketCapRank)
     }
     
     public var body: some View {
@@ -29,7 +31,7 @@ public struct CoinRowView: View {
     
     private func buildCoinInfoColumn() -> some View {
         HStack {
-            Text("\(coin.marketCapRank)")
+            Text(marketCapRank)
                 .padding(.horizontal, 15)
             
             AsyncImage(url: URL(string: coin.image)) { imagePhase in
