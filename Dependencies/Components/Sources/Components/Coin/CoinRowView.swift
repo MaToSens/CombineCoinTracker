@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  CoinRowView.swift
 //  
 //
 //  Created by MaTooSens on 10/03/2024.
@@ -8,16 +8,16 @@
 import CoinInterface
 import SwiftUI
 
-public struct CoinRowView: View {
+struct CoinRowView: View {
     private let coin: CoinModel
     private let marketCapRank: String
     
-    public init(_ coin: CoinModel) {
+    init(_ coin: CoinModel) {
         self.coin = coin
         self.marketCapRank = String(coin.marketCapRank)
     }
     
-    public var body: some View {
+    var body: some View {
         HStack {
             buildCoinInfoColumn()
             
@@ -32,16 +32,11 @@ public struct CoinRowView: View {
     private func buildCoinInfoColumn() -> some View {
         HStack {
             Text(marketCapRank)
-                .padding(.horizontal, 15)
+                .frame(width: 35)
             
-            AsyncImage(url: URL(string: coin.image)) { imagePhase in
-                if let image = imagePhase.image {
-                    image
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 25, height: 25)
-                }
-            }
+            ImageView(coin.image)
+                .frame(width: 30, height: 30)
+                
             
             VStack(alignment: .leading) {
                 Text(coin.name)

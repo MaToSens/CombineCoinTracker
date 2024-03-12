@@ -15,7 +15,8 @@ let package = Package(
     ],
     dependencies: [
         .package(path: "../Coin"),
-        .package(path: "../Design")
+        .package(path: "../Design"),
+        .package(url: "https://github.com/onevcat/Kingfisher.git", exact: "7.11.0")
     ],
     targets: [
         .target(
@@ -23,6 +24,7 @@ let package = Package(
             dependencies: [
                 .product(name: "Coin", package: "Coin"),
                 .product(name: "Design", package: "Design"),
+                .product(name: "Kingfisher", package: "Kingfisher")
             ]
         ),
     ]
