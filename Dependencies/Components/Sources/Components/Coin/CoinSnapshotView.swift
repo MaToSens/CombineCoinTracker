@@ -17,14 +17,8 @@ public struct CoinSnapshotView: View {
     
     public var body: some View {
         VStack(alignment: .leading) {
-            AsyncImage(url: URL(string: coin.image)) { imagePhase in
-                if let image = imagePhase.image {
-                    image
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 25, height: 25)
-                }
-            }
+            ImageView(coin.image)
+                .frame(width: 30, height: 30)
             
             buildCoinInfo()
             buildPortofolioCoinAmoutInfo()
