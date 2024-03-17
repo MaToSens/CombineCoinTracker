@@ -25,6 +25,6 @@ public struct CoinListView: View {
             }
         }
         .listStyle(.plain)
-        .clipShape(.rect(cornerRadius: 10))
+        .clipShape(.rect(cornerRadius: 20))
     }
 }

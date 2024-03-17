@@ -34,10 +34,9 @@ public struct CoinSnapshotView: View {
     @ViewBuilder
     private func buildCoinInfo() -> some View {
         Text(coin.name)
-    
+        
         Text(coin.currentPriceString)
             .fontWeight(.heavy)
-        
     }
     
     private func buildPortofolioCoinAmoutInfo() -> some View {
