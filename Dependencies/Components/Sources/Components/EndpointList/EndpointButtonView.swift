@@ -5,7 +5,7 @@
 //  Created by MaTooSens on 17/03/2024.
 //
 
-import Foundation
+import SwiftUI
 
 struct EndpointButtonView<Endpoint: SelectableEndpoint> : View {
     let endpoint: Endpoint
