@@ -17,12 +17,13 @@ fileprivate struct Endpoint: EndpointInterface {
     static let base: String = "/coins"
     
     init(
-        vsCurrency: String = "usd",
-        order: String = "market_cap_desc",
+        vsCurrency: String,
+        order: String,
         perPage: Int,
         page: Int,
-        sparkline: Bool = false,
-        locale: String = "en"
+        sparkline: Bool,
+        priceChangePercentage: String,
+        locale: String
     ) {
         self.components = ["markets"]
         self.parameters = [
@@ -31,6 +32,7 @@ fileprivate struct Endpoint: EndpointInterface {
             "per_page": perPage,
             "page": page,
             "sparkline": sparkline,
+            "price_change_percentage" : priceChangePercentage,
             "locale": locale
         ]
     }
@@ -39,8 +41,24 @@ fileprivate struct Endpoint: EndpointInterface {
 final class CoinsDataProvider: CoinsDataProviderInterface {
     @Inject private var backendManager: BackendManagerInterface
     
-    func fetchCoins(perPage: Int, page: Int) -> AnyPublisher<[CoinModel], CoinError> {
-        let endpoint: Endpoint = Endpoint(perPage: perPage, page: page)
+    func fetchCoins(
+        vsCurrency: String,
+        order: String,
+        perPage: Int,
+        page: Int,
+        sparkline: Bool,
+        priceChangePercentage: String,
+        locale: String
+    ) -> AnyPublisher<[CoinModel], CoinError> {
+        let endpoint = Endpoint(
+            vsCurrency: vsCurrency,
+            order: order,
+            perPage: perPage,
+            page: page,
+            sparkline: sparkline,
+            priceChangePercentage: priceChangePercentage,
+            locale: locale
+        )
         
         return backendManager
             .fetchObjects(endpoint: endpoint)

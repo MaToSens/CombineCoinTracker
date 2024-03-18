@@ -24,7 +24,11 @@ final class HomeViewModel: ObservableObject {
     
     func fetchCoins() {
         coinManager
-            .fetchCoins(perPage: 3, page: 1)
+            .fetchCoins(
+                order: "market_cap_desc",
+                page: 1,
+                priceChangePercentage: "24H"
+            )
             .receive(on: RunLoop.main)
             .map { State.loaded($0) }
             .catch { Just(.error($0)) }

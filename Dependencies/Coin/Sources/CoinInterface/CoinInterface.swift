@@ -9,11 +9,49 @@ import Combine
 import Foundation
 
 public protocol CoinManagerInterface {
-    func fetchCoins(perPage: Int, page: Int) -> AnyPublisher<[CoinModel], CoinError>
+    func fetchCoins(
+        vsCurrency: String,
+        order: String,
+        perPage: Int,
+        page: Int,
+        sparkline: Bool,
+        priceChangePercentage: String,
+        locale: String
+    ) -> AnyPublisher<[CoinModel], CoinError>
+}
+
+public extension CoinManagerInterface {
+    public func fetchCoins(
+        vsCurrency: String = "usd",
+        order: String,
+        perPage: Int = 50,
+        page: Int,
+        sparkline: Bool = false,
+        priceChangePercentage: String,
+        locale: String = "en"
+    ) -> AnyPublisher<[CoinModel], CoinError> {
+        fetchCoins(
+            vsCurrency: vsCurrency,
+            order: order,
+            perPage: perPage,
+            page: page,
+            sparkline: sparkline,
+            priceChangePercentage: priceChangePercentage,
+            locale: locale
+        )
+    }
 }
 
 public protocol CoinsDataProviderInterface {
-    func fetchCoins(perPage: Int, page: Int) -> AnyPublisher<[CoinModel], CoinError>
+    func fetchCoins(
+        vsCurrency: String,
+        order: String,
+        perPage: Int,
+        page: Int,
+        sparkline: Bool,
+        priceChangePercentage: String,
+        locale: String
+    ) -> AnyPublisher<[CoinModel], CoinError>
 }
 
 public enum CoinError: LocalizedError {
