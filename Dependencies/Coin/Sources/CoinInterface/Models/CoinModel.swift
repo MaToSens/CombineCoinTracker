@@ -11,11 +11,11 @@ import SwiftUI
 public struct CoinModel: Identifiable, Codable, Equatable {
     public let id, symbol, name: String
     public let image: String
-    public let currentPrice: Double
-    public let marketCap, marketCapRank: Int
+    public let currentPrice: Double?
+    public let marketCap, marketCapRank: Int?
     public let fullyDilutedValuation: Double?
     public let totalVolume, high24H, low24H: Double?
-    public let priceChange24H, priceChangePercentage24H: Double
+    public let priceChange24H, priceChangePercentage24H: Double?
     public let marketCapChange24H: Double?
     public let marketCapChangePercentage24H: Double?
     public let circulatingSupply, totalSupply, maxSupply, ath: Double?
@@ -27,7 +27,7 @@ public struct CoinModel: Identifiable, Codable, Equatable {
     public let sparklineIn7D: SparklineIn7D?
     public let priceChangePercentage24HInCurrency: Double?
     
-    public var currentPriceString: String { currentPrice.asCurrencyWithDecimals() }
+    public var currentPriceString: String { currentPrice?.asCurrencyWithDecimals() ?? "N/A" }
 }
 
 public struct SparklineIn7D: Codable, Equatable {

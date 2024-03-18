@@ -23,8 +23,8 @@ public struct TrendIndicatorView: View {
     public init(coin: CoinModel, displayMode: DisplayMode = .text) {
         self.coin = coin
         self.displayMode = displayMode
-        self.priceChangePercentage24String = coin.priceChangePercentage24H.asPercentString(digits: 2)
-        self.priceChangeColor = coin.priceChangePercentage24H >= 0 ? .green : .red
+        self.priceChangePercentage24String = coin.priceChangePercentage24HInCurrency?.asPercentString(digits: 2) ?? "N/A"
+        self.priceChangeColor = coin.priceChangePercentage24H ?? 0 >= 0 ? .green : .red
     }
     
     public var body: some View {

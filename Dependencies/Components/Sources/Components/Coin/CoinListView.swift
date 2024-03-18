@@ -16,7 +16,7 @@ public struct CoinListView: View {
     }
     
     public var body: some View {
-        List {
+        ScrollView {
             ForEach(coins) { coin in
                 CoinRowView(coin)
                     .listRowInsets(
@@ -24,7 +24,7 @@ public struct CoinListView: View {
                     )
             }
         }
-        .listStyle(.plain)
-        .clipShape(.rect(cornerRadius: 10))
+        .scrollIndicators(.hidden)
+        .clipShape(.rect(cornerRadius: 20))
     }
 }
