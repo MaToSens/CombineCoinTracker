@@ -73,7 +73,9 @@ struct HomeView: View {
                 // Action
             }
                 
-            CoinListView(coins)
+            CoinListView(coins, showLoadingIndicator: false) {
+                // action
+            }
         }
     }
 }
