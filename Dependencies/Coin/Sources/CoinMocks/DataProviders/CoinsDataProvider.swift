@@ -24,6 +24,18 @@ final class CoinsDataProvider: CoinsDataProviderInterface {
             .module
             .decodable(fileName: "Coins", withExtension: ".json")
             .mapError { CoinError.invalidDecoding($0) }
+            .tryMap { (coins: [CoinModel]) -> [CoinModel] in
+                guard page <= 2 else {
+                    throw CoinError.noMoreData
+                }
+                
+                let startIndex = (page - 1) * perPage
+                let endIndex = min(startIndex + perPage, coins.count)
+                let slicedCoins = Array(coins[startIndex..<endIndex])
+                
+                return slicedCoins
+            }
+            .mapError { $0 as? CoinError ?? .invalidDecoding($0)}
             .eraseToAnyPublisher()
     }
 }

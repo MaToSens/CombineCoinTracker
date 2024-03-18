@@ -29,7 +29,9 @@ struct CryptocurrencyView: View {
             VStack(spacing: 15) {
                 buildEndpointButtons()
                 
-                CoinListView(coins)
+                CoinListView(coins, showLoadingIndicator: viewModel.showLoadingIndicator) {
+                    viewModel.trigger(.loadingIndicatorIsAppeared)
+                }
             }
             
             buildEndpointListView()

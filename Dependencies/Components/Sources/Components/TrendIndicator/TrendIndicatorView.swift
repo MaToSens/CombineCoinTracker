@@ -17,14 +17,19 @@ public struct TrendIndicatorView: View {
     
     private let displayMode: DisplayMode
     private let coin: CoinModel
-    private let priceChangePercentage24String: String
+    private let priceChangePercentage: String
     private let priceChangeColor: Color
     
     public init(coin: CoinModel, displayMode: DisplayMode = .text) {
         self.coin = coin
         self.displayMode = displayMode
-        self.priceChangePercentage24String = coin.priceChangePercentage24HInCurrency?.asPercentString(digits: 2) ?? "N/A"
-        self.priceChangeColor = coin.priceChangePercentage24H ?? 0 >= 0 ? .green : .red
+        self.priceChangePercentage = coin.priceChangePercentageInCurrency?.asPercentString(digits: 2) ?? "N/A"
+        
+        if let priceChange = coin.priceChangePercentageInCurrency {
+            self.priceChangeColor = priceChange >= 0 ? .green : .red
+        } else {
+            self.priceChangeColor = .gray
+        }
     }
     
     public var body: some View {
@@ -35,13 +40,13 @@ public struct TrendIndicatorView: View {
     }
     
     private func buildTextView() -> some View {
-        Text(priceChangePercentage24String)
+        Text(priceChangePercentage)
             .font(.footnote.weight(.medium))
             .foregroundStyle(priceChangeColor)
     }
     
     private func buildBackgroundView() -> some View {
-        Text(priceChangePercentage24String)
+        Text(priceChangePercentage)
             .foregroundColor(.white)
             .padding(5)
             .background(

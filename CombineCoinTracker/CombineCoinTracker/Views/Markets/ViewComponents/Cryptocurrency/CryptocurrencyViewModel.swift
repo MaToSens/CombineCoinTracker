@@ -38,7 +38,7 @@ final class CryptocurrencyViewModel: ObservableObject {
         
         case hour = "1H"
         case day = "24H"
-        case sevenDays = "7D"
+        case week = "7D"
         
         var value: String { self.rawValue.lowercased() }
     }
@@ -65,11 +65,14 @@ final class CryptocurrencyViewModel: ObservableObject {
 
     @Published private(set) var state: State = .loading
     @Published private(set) var currentPage: Int = 1
+    @Published private(set) var showLoadingIndicator: Bool = true
     
     @Published private(set) var selectedButton: SelectedEndpointButtonOption?
     @Published private(set) var selectedTimeframe: TimeframeEndpoint = .day
     @Published private(set) var selectedOrder: OrderEndpoint = .marketCapDesc
  
+    private var cancellables = Set<AnyCancellable>()
+    
     init() { fetchCoins() }
     
     func trigger(_ event: Event) {
@@ -111,8 +114,29 @@ final class CryptocurrencyViewModel: ObservableObject {
                 priceChangePercentage: selectedTimeframe.value
             )
             .receive(on: RunLoop.main)
-            .map { State.loaded($0) }
-            .catch { Just(.error($0)) }
-            .assign(to: &$state)
+            .sink(receiveCompletion: handleCompletion, receiveValue: handleNewCoins)
+            .store(in: &cancellables)
+    }
+    
+    private func handleCompletion(completion: Subscribers.Completion<CoinError>) {
+        switch completion {
+        case .finished: ()
+        case .failure(let error):
+            switch error {
+            case .noMoreData:
+                self.showLoadingIndicator = false
+            default:
+                self.state = .error(error)
+            }
+        }
+    }
+
+    private func handleNewCoins(newCoins: [CoinModel]) {
+        if case .loaded(let existingCoins) = self.state {
+            let updatedCoins = existingCoins + newCoins
+            self.state = .loaded(updatedCoins)
+        } else {
+            self.state = .loaded(newCoins)
+        }
     }
 }

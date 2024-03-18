@@ -8,7 +8,7 @@
 import Utilities
 import SwiftUI
 
-public struct CoinModel: Identifiable, Codable, Equatable {
+public struct CoinModel: Identifiable, Decodable, Equatable {
     public let id, symbol, name: String
     public let image: String
     public let currentPrice: Double?
@@ -25,9 +25,133 @@ public struct CoinModel: Identifiable, Codable, Equatable {
     public let atlDate: String?
     public let lastUpdated: String?
     public let sparklineIn7D: SparklineIn7D?
-    public let priceChangePercentage24HInCurrency: Double?
+    public let priceChangePercentageInCurrency: Double?
     
     public var currentPriceString: String { currentPrice?.asCurrencyWithDecimals() ?? "N/A" }
+    
+    public init(
+        id: String,
+        symbol: String,
+        name: String,
+        image: String,
+        currentPrice: Double?,
+        marketCap: Int?,
+        marketCapRank: Int?,
+        fullyDilutedValuation: Double?,
+        totalVolume: Double?,
+        high24H: Double?,
+        low24H: Double?,
+        priceChange24H: Double?,
+        priceChangePercentage24H: Double?,
+        marketCapChange24H: Double?,
+        marketCapChangePercentage24H: Double?,
+        circulatingSupply: Double?,
+        totalSupply: Double?,
+        maxSupply: Double?,
+        ath: Double?,
+        athChangePercentage: Double?,
+        athDate: String?,
+        atl: Double?,
+        atlChangePercentage: Double?,
+        atlDate: String?,
+        lastUpdated: String?,
+        sparklineIn7D: SparklineIn7D?,
+        priceChangePercentageInCurrency: Double?
+    ) {
+        self.id = id
+        self.symbol = symbol
+        self.name = name
+        self.image = image
+        self.currentPrice = currentPrice
+        self.marketCap = marketCap
+        self.marketCapRank = marketCapRank
+        self.fullyDilutedValuation = fullyDilutedValuation
+        self.totalVolume = totalVolume
+        self.high24H = high24H
+        self.low24H = low24H
+        self.priceChange24H = priceChange24H
+        self.priceChangePercentage24H = priceChangePercentage24H
+        self.marketCapChange24H = marketCapChange24H
+        self.marketCapChangePercentage24H = marketCapChangePercentage24H
+        self.circulatingSupply = circulatingSupply
+        self.totalSupply = totalSupply
+        self.maxSupply = maxSupply
+        self.ath = ath
+        self.athChangePercentage = athChangePercentage
+        self.athDate = athDate
+        self.atl = atl
+        self.atlChangePercentage = atlChangePercentage
+        self.atlDate = atlDate
+        self.lastUpdated = lastUpdated
+        self.sparklineIn7D = sparklineIn7D
+        self.priceChangePercentageInCurrency = priceChangePercentageInCurrency
+    }
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case symbol
+        case name
+        case image
+        case currentPrice
+        case marketCap
+        case marketCapRank
+        case fullyDilutedValuation
+        case totalVolume
+        case high24H
+        case low24H
+        case priceChange24H
+        case priceChangePercentage24H
+        case marketCapChange24H
+        case marketCapChangePercentage24H
+        case circulatingSupply
+        case totalSupply
+        case maxSupply
+        case ath
+        case athChangePercentage
+        case athDate
+        case atl
+        case atlChangePercentage
+        case atlDate
+        case lastUpdated
+        case sparklineIn7D
+        case priceChangePercentageInCurrency
+        case priceChangePercentage1HInCurrency
+        case priceChangePercentage24HInCurrency
+        case priceChangePercentage7DInCurrency
+    }
+    
+    public init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try container.decode(String.self, forKey: .id)
+        self.symbol = try container.decode(String.self, forKey: .symbol)
+        self.name = try container.decode(String.self, forKey: .name)
+        self.image = try container.decode(String.self, forKey: .image)
+        self.currentPrice = try container.decodeIfPresent(Double.self, forKey: .currentPrice)
+        self.marketCap = try container.decodeIfPresent(Int.self, forKey: .marketCap)
+        self.marketCapRank = try container.decodeIfPresent(Int.self, forKey: .marketCapRank)
+        self.fullyDilutedValuation = try container.decodeIfPresent(Double.self, forKey: .fullyDilutedValuation)
+        self.totalVolume = try container.decodeIfPresent(Double.self, forKey: .totalVolume)
+        self.high24H = try container.decodeIfPresent(Double.self, forKey: .high24H)
+        self.low24H = try container.decodeIfPresent(Double.self, forKey: .low24H)
+        self.priceChange24H = try container.decodeIfPresent(Double.self, forKey: .priceChange24H)
+        self.priceChangePercentage24H = try container.decodeIfPresent(Double.self, forKey: .priceChangePercentage24H)
+        self.marketCapChange24H = try container.decodeIfPresent(Double.self, forKey: .marketCapChange24H)
+        self.marketCapChangePercentage24H = try container.decodeIfPresent(Double.self, forKey: .marketCapChangePercentage24H)
+        self.circulatingSupply = try container.decodeIfPresent(Double.self, forKey: .circulatingSupply)
+        self.totalSupply = try container.decodeIfPresent(Double.self, forKey: .totalSupply)
+        self.maxSupply = try container.decodeIfPresent(Double.self, forKey: .maxSupply)
+        self.ath = try container.decodeIfPresent(Double.self, forKey: .ath)
+        self.athChangePercentage = try container.decodeIfPresent(Double.self, forKey: .athChangePercentage)
+        self.athDate = try container.decodeIfPresent(String.self, forKey: .athDate)
+        self.atl = try container.decodeIfPresent(Double.self, forKey: .atl)
+        self.atlChangePercentage = try container.decodeIfPresent(Double.self, forKey: .atlChangePercentage)
+        self.atlDate = try container.decodeIfPresent(String.self, forKey: .atlDate)
+        self.lastUpdated = try container.decodeIfPresent(String.self, forKey: .lastUpdated)
+        self.sparklineIn7D = try container.decodeIfPresent(SparklineIn7D.self, forKey: .sparklineIn7D)
+        self.priceChangePercentageInCurrency = try container.decodeIfPresent(Double.self, forKey: .priceChangePercentage1HInCurrency)
+                   ?? container.decodeIfPresent(Double.self, forKey: .priceChangePercentage24HInCurrency)
+                   ?? container.decodeIfPresent(Double.self, forKey: .priceChangePercentage7DInCurrency)
+    }
 }
 
 public struct SparklineIn7D: Codable, Equatable {
@@ -39,7 +163,7 @@ public struct SparklineIn7D: Codable, Equatable {
 }
 
 public extension CoinModel {
-    static let mock = Self(
+    static let mock = CoinModel(
         id: "bitcoin",
         symbol: "btc",
         name: "Bitcoin",
@@ -236,6 +360,6 @@ public extension CoinModel {
             57336.828870254896
 
         ]),
-        priceChangePercentage24HInCurrency: 3952.64
+        priceChangePercentageInCurrency: 3952.64
      )
 }

@@ -43,6 +43,7 @@ struct CoinRowView: View {
             
             VStack(alignment: .leading) {
                 Text(coin.name)
+                    .lineLimit(1)
                 
                 Text(coin.symbol.uppercased())
                     .font(.footnote.weight(.medium))
