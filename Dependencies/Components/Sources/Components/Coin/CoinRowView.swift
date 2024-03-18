@@ -10,11 +10,9 @@ import SwiftUI
 
 struct CoinRowView: View {
     private let coin: CoinModel
-    private let marketCapRank: String
     
     init(_ coin: CoinModel) {
         self.coin = coin
-        self.marketCapRank = String(coin.marketCapRank)
     }
     
     var body: some View {
@@ -31,8 +29,13 @@ struct CoinRowView: View {
     
     private func buildCoinInfoColumn() -> some View {
         HStack {
-            Text(marketCapRank)
-                .frame(width: 35)
+            if let marketCapRank = coin.marketCapRank {
+                Text("\(marketCapRank)")
+                    .frame(width: 35)
+            } else {
+                Text("-")
+                    .frame(width: 35)
+            }
             
             ImageView(coin.image)
                 .frame(width: 30, height: 30)

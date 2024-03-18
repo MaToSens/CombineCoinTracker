@@ -9,6 +9,7 @@ import SwiftUI
 
 public protocol SelectableEndpoint: RawRepresentable, CaseIterable, Hashable where AllCases: RandomAccessCollection, RawValue == String {
     static var title: String { get }
+    var value: String { get }
 }
 
 public struct EndpointListView<Endpoint: SelectableEndpoint>: View {
