@@ -65,6 +65,7 @@ public enum CoinError: LocalizedError {
     case invalidParameters
     
     case unknown
+    case noMoreData
     
     public var errorDescription: String? {
         switch self {
@@ -76,6 +77,7 @@ public enum CoinError: LocalizedError {
         case .invalidData: return "Invalid Data"
         case .invalidParameters: return "Invalid Parameters"
         case .unknown: return "Unknown Error"
+        case .noMoreData: return "No more data"
         }
     }
 }
